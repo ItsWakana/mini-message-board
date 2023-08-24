@@ -1,10 +1,17 @@
-<h2>Message Form</h2>
-<form action="/new" method="post">
-    <label for="author">Name
-        <input type="text" name="author" id="author">
-    </label>
-    <label for="message">Name
-        <input type="text" name="message" id="message">
-    </label>
-    <button type="submit">Send Message</button>
-</form>
+<html>
+    <head>
+        <link rel='stylesheet' href='./stylesheets/style.css' />
+    </head>
+    <body>
+        <h2>Message Form</h2>
+        <form action="/new" method="post" class="my-form">
+            <label for="author">Name
+                <input type="text" name="author" id="author">
+            </label>
+            <label for="message">Message
+                <input type="text" name="message" id="message">
+            </label>
+            <button type="submit">Send Message</button>
+        </form>
+    </body>
+</html>
