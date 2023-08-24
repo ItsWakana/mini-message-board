@@ -1,8 +1,43 @@
 body {
-  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+*, 
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
 }
 
 a {
   color: #00B7FF;
 }
+
+.messages {
+  /* background: red; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+
+}
+
+.messages > li {
+  background: rgb(119, 121, 136);
+  list-style: none;
+  width: 50%;
+  padding: 20px;
+  border-radius: 15px;
+  min-width: 300px;
+}
+
+.messages > li p:first-child,
+.messages > li p:nth-child(2) {
+  padding-bottom: 20px;
+}
+
