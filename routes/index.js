@@ -18,9 +18,13 @@ const Message = require("../models/message");
 
 /* GET home page. */
 router.get('/', async (req, res, next) => {
-
-  const messages = await Message.find({});
-  res.render('index', { title: 'Mini Message Board', messages: messages });
+  try {
+    const messages = await Message.find({});
+    res.render('index', { title: 'Mini Message Board', messages: messages });
+  } catch (err) {
+    console.log(err);
+    return next(err);
+  }
 });
 
 router.get('/new', (req, res, next) => {

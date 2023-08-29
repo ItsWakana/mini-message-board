@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= message.sentAt %></title>
+    <link rel='stylesheet' href='./stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= message.sentAt %></h1>
+    <div class="message">
+      <p><b><%= message.author %></b></p>
+      <p><%= message.messageContent %></p>
+      <p><i><%= message.sentAt %></i></p>
+    </div>
+  </body>
+</html>
