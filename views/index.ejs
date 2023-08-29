@@ -9,9 +9,9 @@
     <ul class="messages">
       <% messages.forEach((message) => { %>
         <li>
-          <p><b><%= message.user %></b></p>
-          <p><%= message.text %></p>
-          <p><i><%= message.added %></i></p>
+          <p><b><%= message.author %></b></p>
+          <p><%= message.messageContent %></p>
+          <p><i><%= message.sentAt %></i></p>
         </li>
       <% }) %>
     </ul>
