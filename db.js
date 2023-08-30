@@ -4,7 +4,6 @@ require("dotenv").config();
 
 const runDatabase = async () => {
     
-    const mongoDBUsername = process.env.MONGO_DB_USERNAME;
     const mongoDBPassword = process.env.MONGO_DB_PASSWORD;
     const databaseName = "mini_message_board";
     

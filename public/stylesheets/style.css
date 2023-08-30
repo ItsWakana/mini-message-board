@@ -29,12 +29,14 @@ a {
 
 }
 
+
 h1,
 h2 {
   color: white;
   margin-top: 20px;
 }
-.messages > li {
+.messages > li,
+.message {
   background: rgb(130, 134, 163);
   list-style: none;
   width: 50%;
@@ -44,7 +46,9 @@ h2 {
 }
 
 .messages > li p:first-child,
-.messages > li p:nth-child(2) {
+.messages > li p:nth-child(2),
+.message > p:first-child,
+.message > p:nth-child(2) {
   padding-bottom: 20px;
 }
 

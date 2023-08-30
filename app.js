@@ -1,16 +1,21 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-const runDatabase = require("./db");
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const mongoose = require("mongoose");
+require("dotenv").config();
 
 var indexRouter = require('./routes/index');
 var messagesRouter = require('./routes/messages');
 
 var app = express();
 
-runDatabase().then(() => console.log("Database connected successfully"));
+const databaseName = "mini_message_board";
+
+const mongoDB = `mongodb+srv://admin:${process.env.MONGO_DB_PASSWORD}@cluster0.jqqmhiw.mongodb.net/${databaseName}?retryWrites=true&w=majority`;
+
+mongoose.connect(mongoDB)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
