@@ -1,20 +1,12 @@
-var express = require('express');
-var router = express.Router();
-const Message = require("../models/message");
+const express = require('express');
+const router = express.Router();
+const { getMessageById } = require('../controllers/messageController');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/:messageId', async (req, res, next) => {
-  try {
-    const foundMessage = await Message.findById(req.params.messageId).exec();
-    res.render('singleMessage', { message: foundMessage });
-  } catch(err) {
-    res.send("No message found with this id");
-  }
-
-})
+router.get('/:messageId', getMessageById);
 
 module.exports = router;
