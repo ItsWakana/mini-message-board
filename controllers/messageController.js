@@ -15,6 +15,12 @@ const getMessageById = asyncHandler( async (req, res, next) => {
     const foundMessage = await Message.findById(req.params.messageId).exec();
     res.render('singleMessage', { message: foundMessage });
 
+    if (foundMessage === null) {
+        const err = new Error('Message not found with the specified id');
+        err.status = 404;
+        return next(err);
+    }
+
 });
 
 // const getAllMessages = async (req, res, next) => {
