@@ -19,9 +19,25 @@ const getAllMessages = async (req, res, next) => {
       }
 }
 
-const writeMessageToDb = () => {}
+const writeMessageToDb = async (req, res, next) => {
+
+    const { author, message } = req.body;
+
+    try {
+      const myMessage = await Message.create({
+        messageContent: message,
+        sentAt: new Date(),
+        author: author
+      });
+    } catch (error) {
+      res.status(500).json({ error: 'An error occurred while saving the message' });
+    }
+  
+    res.redirect('/');
+}
 
 module.exports = {
     getMessageById,
-    getAllMessages
+    getAllMessages,
+    writeMessageToDb
 }
