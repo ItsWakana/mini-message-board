@@ -1,4 +1,5 @@
 const Message = require('../models/message');
+const mongoose = require("mongoose");
 const asyncHandler = require("express-async-handler");
 
 // const getMessageById = async (req, res, next) => {
@@ -11,9 +12,12 @@ const asyncHandler = require("express-async-handler");
 // }
 
 const getMessageById = asyncHandler( async (req, res, next) => {
-
+    //check length of params first before making the request to db.
+    if (!mongoose.isValidObjectId(req.params.messageId)) {
+        const err = new Error("Invalid message id");
+        return next(err);
+    }
     const foundMessage = await Message.findById(req.params.messageId).exec();
-    res.render('singleMessage', { message: foundMessage });
 
     if (foundMessage === null) {
         const err = new Error('Message not found with the specified id');
@@ -21,6 +25,7 @@ const getMessageById = asyncHandler( async (req, res, next) => {
         return next(err);
     }
 
+    res.render('singleMessage', { message: foundMessage });
 });
 
 // const getAllMessages = async (req, res, next) => {
