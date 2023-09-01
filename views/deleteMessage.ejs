@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+   <h1><%= title %>: <%= message._id%></h1>
+   <div class="message">
+    <p><b><%= message.author %></b></p>
+    <p><%= message.messageContent %></p>
+    <p><i><%= message.sentAt %></i></p>
+  </div>
+
+  <p>Are you sure you want to delete this message?</p>
+  <form action="/messages/<%= message._id %>/delete" method="post">
+    <label for="message-id">
+        <input type="hidden" name="message-id" id="message-id" value="<%= message._id%>">
+    </label>
+    <button type="submit">Delete Message</button>
+  </form>
+  </body>
+</html>
